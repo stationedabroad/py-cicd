@@ -1,4 +1,5 @@
 from binary_search import binary_search
+from pytest import raises
 
 def test_search_first():
     "Test first element look up"
@@ -15,3 +16,7 @@ def test_value_not_found():
     except ValueError as e:
         print(type(e), e)
         assert isinstance(e, ValueError), "Not Found needle somewhere in haystack"
+
+def test_value_not_found_b():
+    with raises(ValueError):
+        binary_search(100, [1,2,3,4])
